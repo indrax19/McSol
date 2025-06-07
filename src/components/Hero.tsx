@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles, Zap } from "lucide-react";
 
 export const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="pt-20 pb-16 px-4 relative">
       <div className="container mx-auto text-center relative">
@@ -41,13 +48,32 @@ export const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-3 text-lg shadow-lg shadow-red-600/25 transform hover:scale-105 transition-all duration-200">
-              Explore Our Services
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Button 
+              onClick={() => scrollToSection('services')}
+              className="group relative bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-3 text-lg shadow-lg shadow-red-600/25 transform hover:scale-105 transition-all duration-300 overflow-hidden border border-red-500/30"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-red-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-red-300/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative z-10 flex items-center">
+                Explore Our Services
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-red-300 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </Button>
-            <Button variant="outline" className="border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-3 text-lg backdrop-blur-sm bg-purple-400/10 transform hover:scale-105 transition-all duration-200">
-              <Play className="mr-2 h-5 w-5" />
-              View Packages
+            
+            <Button 
+              onClick={() => scrollToSection('packages')}
+              variant="outline" 
+              className="group relative border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-3 text-lg backdrop-blur-sm bg-purple-400/10 transform hover:scale-105 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-blue-400/20 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-purple-300/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative z-10 flex items-center">
+                <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                View Packages
+              </span>
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-300 to-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+              <div className="absolute bottom-0 right-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 delay-150"></div>
             </Button>
           </div>
 
