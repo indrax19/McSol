@@ -2,10 +2,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LogOut, Package, Server, Users } from "lucide-react";
+import { LogOut, Package, Server, Building } from "lucide-react";
 import { PackageManager } from "./PackageManager";
 import { ServiceManager } from "./ServiceManager";
-import { CustomerManager } from "./CustomerManager";
+import { ClientManager } from "./ClientManager";
 
 interface AdminDashboardProps {
   onLogout: () => void;
@@ -39,9 +39,9 @@ export const AdminDashboard = ({ onLogout }: AdminDashboardProps) => {
               <Server className="h-4 w-4" />
               <span>Services</span>
             </TabsTrigger>
-            <TabsTrigger value="customers" className="flex items-center space-x-2 data-[state=active]:bg-purple-600">
-              <Users className="h-4 w-4" />
-              <span>Customers</span>
+            <TabsTrigger value="clients" className="flex items-center space-x-2 data-[state=active]:bg-purple-600">
+              <Building className="h-4 w-4" />
+              <span>Valued Clients</span>
             </TabsTrigger>
           </TabsList>
 
@@ -53,8 +53,8 @@ export const AdminDashboard = ({ onLogout }: AdminDashboardProps) => {
             <ServiceManager />
           </TabsContent>
 
-          <TabsContent value="customers">
-            <CustomerManager />
+          <TabsContent value="clients">
+            <ClientManager />
           </TabsContent>
         </Tabs>
       </div>
