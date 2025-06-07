@@ -1,6 +1,7 @@
 
 import { useState } from "react";
-import { Menu, X, Wifi } from "lucide-react";
+import { Menu, X, Wifi, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,13 @@ export const Navigation = () => {
             <a href="#packages" className="text-white hover:text-purple-400 transition-colors">Packages</a>
             <a href="#clients" className="text-white hover:text-purple-400 transition-colors">Clients</a>
             <a href="#contact" className="text-white hover:text-purple-400 transition-colors">Contact</a>
+            <Link 
+              to="/admin" 
+              className="text-purple-400 hover:text-purple-300 transition-colors flex items-center space-x-1"
+            >
+              <Settings className="h-4 w-4" />
+              <span>Admin</span>
+            </Link>
           </div>
 
           <button
@@ -41,6 +49,13 @@ export const Navigation = () => {
               <a href="#packages" className="text-white hover:text-purple-400 transition-colors">Packages</a>
               <a href="#clients" className="text-white hover:text-purple-400 transition-colors">Clients</a>
               <a href="#contact" className="text-white hover:text-purple-400 transition-colors">Contact</a>
+              <Link 
+                to="/admin" 
+                className="text-purple-400 hover:text-purple-300 transition-colors flex items-center space-x-1"
+              >
+                <Settings className="h-4 w-4" />
+                <span>Admin Panel</span>
+              </Link>
             </div>
           </div>
         )}
